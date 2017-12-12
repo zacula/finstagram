@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
     validates :photo_url, presence: true
     validates :photo_url, format: { with: URI.regexp }, if: 'photo_url.present?'
     validates :user_id, presence: true
+    validates_presence_of :photo_url, :user  
     belongs_to :user 
     has_many :comments
     has_many :likes
